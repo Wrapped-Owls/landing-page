@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-abstract class FriggrayndIcons {
+abstract class WrappedOwlsIcons {
   static const _kFontFam = 'FriggrayndIcons';
   static const dynamic _kFontPkg = null;
 

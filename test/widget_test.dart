@@ -13,7 +13,7 @@ import 'package:wrappedowls_landing_page/main.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(WowlsApp());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
