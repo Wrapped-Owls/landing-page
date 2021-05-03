@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:wrappedowls_landing_page/src/util/app.info.dart';
 import 'package:wrappedowls_landing_page/src/views/general/footer.dart';
 
 import 'content/about.dart';
@@ -30,9 +30,18 @@ class _WowlsHomePageState extends State<WowlsHomePage> {
         child: WowlsFooter(),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        tooltip: 'WrappedOwls GitHub',
-        child: Icon(FontAwesomeIcons.github),
+        onPressed: () {
+          showAboutDialog(
+            context: context,
+            applicationName: AppInformation.name,
+            applicationIcon: AppInformation.icon,
+            applicationVersion: AppInformation.version,
+            applicationLegalese: AppInformation.legalese,
+            children: AppInformation.content,
+          );
+        },
+        tooltip: 'About',
+        child: Icon(Icons.info),
       ),
     );
   }
