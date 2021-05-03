@@ -42,30 +42,40 @@ abstract class WowlsNavbar {
     );
   }
 
-  static List<Widget> buildActions(BuildContext context) {
-    return [
-      TextButton(
-        onPressed: () {},
-        child: Text('DevTools'),
-      ),
-      SizedBox(
-        width: 10,
-      ),
-      TextButton(
-        onPressed: () {},
-        child: Text('Products'),
-      ),
-      SizedBox(
-        width: 10,
-      ),
-      buildToggleTheme(),
-    ];
+  static Widget buildActions(BuildContext context) {
+    return ToggleButtons(
+      isSelected: [false, false],
+      renderBorder: false,
+      constraints: BoxConstraints.tight(Size.fromWidth(80)),
+      children: [
+        ElevatedButton(
+          onPressed: () {},
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+          ),
+          child: Text('DevTools'),
+        ),
+        ElevatedButton(
+          onPressed: () {},
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+          ),
+          child: Text('Products'),
+        ),
+      ],
+    );
   }
 
   static AppBar build(BuildContext context) {
     return AppBar(
       leading: buildLeading(),
-      actions: buildActions(context),
+      actions: [
+        buildActions(context),
+        SizedBox(
+          width: 10,
+        ),
+        buildToggleTheme(),
+      ],
     );
   }
 }
