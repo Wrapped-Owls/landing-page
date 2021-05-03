@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../util/app.info.dart';
 import 'content/about.dart';
+import 'content/people.dart';
 import 'general/footer.dart';
 import 'general/navbar.dart';
 
@@ -25,6 +26,7 @@ class _WowlsHomePageState extends State<WowlsHomePage> {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               WowlsAbout(),
+              WowlsPeople(),
             ],
           ),
         ),
