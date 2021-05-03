@@ -38,8 +38,10 @@ class WowlsFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color:
-          backgroundColor ?? UuuUhuThemes.darkColors[UuuUhuComponents.DIALOG],
+      color: backgroundColor ??
+          UuuUhuThemes.currentPalette(
+            UuuUhuComponents.DIALOG,
+          ),
       child: Align(
         alignment: alignment,
         child: Padding(

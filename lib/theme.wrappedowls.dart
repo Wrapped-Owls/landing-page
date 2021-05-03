@@ -17,7 +17,7 @@ enum UuuUhuComponents {
 }
 
 abstract class UuuUhuThemes {
-  static var _currentTheme = false;
+  static var currentTheme = false;
   static const light = false;
   static const dark = true;
 
@@ -123,7 +123,7 @@ abstract class UuuUhuThemes {
   }
 
   static Color? currentPalette(UuuUhuComponents desired) {
-    return _currentTheme ? darkColors[desired] : lightColors[desired];
+    return currentTheme ? darkColors[desired] : lightColors[desired];
   }
 
   static ThemeData getLight() {
@@ -134,11 +134,7 @@ abstract class UuuUhuThemes {
     return _generalTheme(darkColors, Brightness.dark);
   }
 
-  static set currentTheme(bool value) {
-    _currentTheme = value;
-  }
-
   static ThemeMode currentThemeMode() {
-    return _currentTheme ? ThemeMode.dark : ThemeMode.light;
+    return currentTheme ? ThemeMode.dark : ThemeMode.light;
   }
 }

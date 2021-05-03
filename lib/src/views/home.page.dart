@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:wrappedowls_landing_page/src/util/app.info.dart';
-import 'package:wrappedowls_landing_page/src/views/general/footer.dart';
 
+import '../util/app.info.dart';
 import 'content/about.dart';
+import 'general/footer.dart';
 import 'general/navbar.dart';
 
 class WowlsHomePage extends StatefulWidget {
@@ -16,13 +16,17 @@ class _WowlsHomePageState extends State<WowlsHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: WowlsNavbar(),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            WowlsAbout(),
-          ],
+      appBar: WowlsNavbar.build(context),
+      body: Scrollbar(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              WowlsAbout(),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: ConstrainedBox(
