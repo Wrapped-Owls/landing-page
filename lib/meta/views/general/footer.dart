@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wrappedowls_landing_page/theme.wrappedowls.dart';
+import 'package:wrappedowls_landing_page/app/shared/theme.wrappedowls.dart';
 
 class WowlsFooter extends StatelessWidget {
   final Color? backgroundColor;

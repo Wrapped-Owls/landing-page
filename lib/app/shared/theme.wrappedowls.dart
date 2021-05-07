@@ -122,8 +122,9 @@ abstract class UuuUhuThemes {
     );
   }
 
-  static Color? currentPalette(UuuUhuComponents desired) {
-    return currentTheme ? darkColors[desired] : lightColors[desired];
+  static Color currentPalette(UuuUhuComponents desired) {
+    return (currentTheme ? darkColors[desired] : lightColors[desired]) ??
+        Colors.teal;
   }
 
   static ThemeData getLight() {

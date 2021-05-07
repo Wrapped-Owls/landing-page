@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:wrappedowls_landing_page/core/models/social.links.dart';
+import 'package:wrappedowls_landing_page/meta/widgets/people.card.dart';
 
-import '../../models/social.links.dart';
-import '../widgets/people.card.dart';
 
 class WowlsPeople extends StatefulWidget {
   @override

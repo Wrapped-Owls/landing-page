@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'src/util/global.functions.dart';
-import 'src/views/home.page.dart';
-import 'theme.wrappedowls.dart';
+import 'app/shared/theme.wrappedowls.dart';
+import 'core/util/global.functions.dart';
+import 'meta/views/home.page.dart';
 
 void main() {
   runApp(WowlsApp());

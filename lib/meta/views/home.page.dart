@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wrappedowls_landing_page/core/util/app.info.dart';
 
-import '../util/app.info.dart';
 import 'content/about.dart';
 import 'content/people.dart';
 import 'general/footer.dart';

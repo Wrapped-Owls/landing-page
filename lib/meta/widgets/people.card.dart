@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:wrappedowls_landing_page/src/models/social.enum.dart';
-
-import '../../models/social.links.dart';
+import 'package:wrappedowls_landing_page/core/models/social.enum.dart';
+import 'package:wrappedowls_landing_page/core/models/social.links.dart';
 
 class PeopleCard extends StatelessWidget {
   final double height;

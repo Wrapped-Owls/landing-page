@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../wrappedowls.icons.dart';
+import 'package:wrappedowls_landing_page/app/shared/wrappedowls.icons.dart';
 
 abstract class AppInformation {
   static const name = 'Wrapped Owls Landing Page';
