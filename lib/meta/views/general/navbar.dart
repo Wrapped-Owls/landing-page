@@ -46,7 +46,7 @@ abstract class WowlsNavbar {
     return ToggleButtons(
       isSelected: [false, false],
       renderBorder: false,
-      constraints: BoxConstraints.tight(Size.fromWidth(80)),
+      constraints: BoxConstraints.tight(Size.fromWidth(100)),
       children: [
         ElevatedButton(
           onPressed: () {},

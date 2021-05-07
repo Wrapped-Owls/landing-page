@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:wrappedowls_landing_page/core/models/social.links.dart';
 import 'package:wrappedowls_landing_page/meta/widgets/people.card.dart';
 
-
 class WowlsPeople extends StatefulWidget {
+  final double height;
+
+  const WowlsPeople({Key? key, this.height = 210}) : super(key: key);
+
   @override
   _WowlsPeopleState createState() => _WowlsPeopleState();
 }

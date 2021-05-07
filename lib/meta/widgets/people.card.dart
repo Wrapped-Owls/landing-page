@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:wrappedowls_landing_page/core/models/social.enum.dart';
 import 'package:wrappedowls_landing_page/core/models/social.links.dart';
@@ -13,7 +14,7 @@ class PeopleCard extends StatelessWidget {
 
   const PeopleCard({
     Key? key,
-    this.height = 260,
+    this.height = 200,
     this.width = 400,
     required this.name,
     required this.text,
@@ -38,7 +39,7 @@ class PeopleCard extends StatelessWidget {
 
   Widget _buildDescriptionColumn(BuildContext context) {
     return ConstrainedBox(
-      constraints: BoxConstraints.tight(Size.fromWidth(width / 3.2)),
+      constraints: BoxConstraints(maxWidth: width / 2.2),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -48,15 +49,12 @@ class PeopleCard extends StatelessWidget {
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           Divider(),
-          AspectRatio(
-            aspectRatio: 1,
-            child: Scrollbar(
-              child: SingleChildScrollView(
-                child: Text(
-                  text,
-                  softWrap: true,
-                  textAlign: TextAlign.justify,
-                ),
+          Scrollbar(
+            child: SingleChildScrollView(
+              child: Text(
+                text,
+                softWrap: true,
+                textAlign: TextAlign.justify,
               ),
             ),
           ),
@@ -83,7 +81,11 @@ class PeopleCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-            image,
+            Image(
+              image: image.image,
+              width: width / 2,
+              fit: BoxFit.fitWidth,
+            ),
             SizedBox(
               width: 8,
             ),

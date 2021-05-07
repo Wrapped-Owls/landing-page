@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:wrappedowls_landing_page/core/util/app.info.dart';
 
 import 'content/about.dart';
+import 'content/banner.dart';
 import 'content/people.dart';
+import 'content/products.dart';
 import 'general/footer.dart';
 import 'general/navbar.dart';
 
@@ -16,17 +18,27 @@ class WowlsHomePage extends StatefulWidget {
 class _WowlsHomePageState extends State<WowlsHomePage> {
   @override
   Widget build(BuildContext context) {
+    final parentSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: WowlsNavbar.build(context),
       body: Scrollbar(
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
-              WowlsAbout(),
-              WowlsPeople(),
+              WowlsBanner(
+                height: (parentSize.height / 4) * 1.6,
+              ),
+              WowlsAbout(
+                height: parentSize.height / 4,
+              ),
+              WowlsProducts(
+                height: parentSize.height / 4,
+              ),
+              WowlsPeople(
+                height: parentSize.height / 4,
+              ),
             ],
           ),
         ),
