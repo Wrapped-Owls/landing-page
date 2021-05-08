@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wrappedowls_landing_page/meta/widgets/product.card.dart';
 
 class WowlsProducts extends StatelessWidget {
   final double height;
@@ -13,7 +14,7 @@ class WowlsProducts extends StatelessWidget {
         minWidth: MediaQuery.of(context).size.width / 2,
       ),
       alignment: Alignment.center,
-      child: Text('A Product list, that will contains a list of images'),
+      child: ProductCard(),
     );
   }
 }
