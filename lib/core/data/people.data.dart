@@ -6,11 +6,12 @@ abstract class PeopleData {
   static final people = <String, PeopleInfo>{
     'Jictyvoo': PeopleInfo(
       name: 'Jictyvoo',
-      description:
-          '📜 Graduating in Computer Engineering at the Universidade Estadual de Feira de Santana (UEFS)\n\n'
-          '🔧 Computer technician with focusing on System Development by the Serviço Nacional de Aprendizagem Industrial (SENAI)',
+      description: '📜 Graduating in Computer Engineering at the '
+          'Universidade Estadual de Feira de Santana (UEFS)\n\n'
+          '🔧 Computer technician with focusing on System Development by the '
+          'Serviço Nacional de Aprendizagem Industrial (SENAI)',
       image: Image.asset(
-        'images/21112095.jpg',
+        'assets/images/21112095.jpg',
       ),
       links: SocialLinksValue(
         github: 'jictyvoo',
@@ -20,9 +21,10 @@ abstract class PeopleData {
     'IgorGCSS': PeopleInfo(
       name: 'Igor Garcia Costa',
       description:
-          'Computer Engineering - UEFS.\n\nI like to draw...sometimes\n\nBlack belt in judo',
+          'Computer Engineering - UEFS.\n\nI like to draw...sometimes\n\n'
+          'Black belt in judo',
       image: Image.asset(
-        'images/49907083_310872826226829_979369766030409728_n.jpg',
+        'assets/images/49907083_310872826226829_979369766030409728_n.jpg',
       ),
       links: SocialLinksValue(
         github: 'IgorGarciaCosta',
@@ -33,7 +35,7 @@ abstract class PeopleData {
       name: 'Igor Garcia Costa',
       description: 'Ô, a desilusão. Ô, a decepção',
       image: Image.asset(
-        'images/166096347_172860711326908_2531234240470099110_n.jpg',
+        'assets/images/166096347_172860711326908_2531234240470099110_n.jpg',
       ),
       links: SocialLinksValue(
         github: 'lslima13',
@@ -42,10 +44,10 @@ abstract class PeopleData {
     ),
     'Abelarvão': PeopleInfo(
       name: 'Abel Galvão',
-      description:
-          'Graduating in Computer Engineering at the Universidade Estadual de Feira de Santana (UEFS)',
+      description: 'Graduating in Computer Engineering at the'
+          ' Universidade Estadual de Feira de Santana (UEFS)',
       image: Image.asset(
-        'images/32915303.jpg',
+        'assets/images/32915303.jpg',
       ),
       links: SocialLinksValue(
         github: 'argalvao',
