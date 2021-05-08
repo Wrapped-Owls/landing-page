@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:wrappedowls_landing_page/core/data/people.data.dart';
 import 'package:wrappedowls_landing_page/core/models/social.links.dart';
 import 'package:wrappedowls_landing_page/meta/widgets/people.card.dart';
 
@@ -12,65 +14,50 @@ class WowlsPeople extends StatefulWidget {
 }
 
 class _WowlsPeopleState extends State<WowlsPeople> {
+  List<PeopleCard> _buildPeopleList(BuildContext context) {
+    final list = <PeopleCard>[];
+    for (final person in PeopleData.people.values) {
+      list.add(PeopleCard(
+        name: person.name,
+        text: person.description,
+        image: person.image,
+        links: person.links,
+      ));
+    }
+    return list;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          'The people behind Wrapped Owls',
-          maxLines: 2,
-          textAlign: TextAlign.left,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 28,
-          ),
-        ),
-        Scrollbar(
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            padding: EdgeInsets.only(left: 8, right: 8),
-            child: Row(
-              children: [
-                PeopleCard(
-                  name: 'Jictyvoo',
-                  text:
-                      '📜 Graduating in Computer Engineering at the Universidade Estadual de Feira de Santana (UEFS)\n\n'
-                      '🔧 Computer technician with focusing on System Development by the Serviço Nacional de Aprendizagem Industrial (SENAI)',
-                  image: Image.network(
-                    'https://avatars.githubusercontent.com/u/21112095',
-                  ),
-                  links: SocialLinksValue(
-                    github: 'jictyvoo',
-                    linkedin: 'jictyvoo',
-                  ),
-                ),
-                PeopleCard(
-                  name: 'Rustorier',
-                  text: 'about this user about this user about this user '
-                      'about this user about this user about this user',
-                  image: Image.network(
-                    'https://avatars.githubusercontent.com/u/21112095',
-                  ),
-                ),
-                PeopleCard(
-                  name: 'Jonh',
-                  text: 'Any text',
-                  image: Image.network(
-                    'https://avatars.githubusercontent.com/u/21112095',
-                  ),
-                ),
-                PeopleCard(
-                  name: 'Victor',
-                  text: 'Lorem Ipsum',
-                  image: Image.network(
-                    'https://avatars.githubusercontent.com/u/21112095',
-                  ),
-                ),
-              ],
+    return Container(
+      padding: EdgeInsets.only(left: 8, right: 8),
+      constraints: BoxConstraints(minHeight: widget.height),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'The people behind Wrapped Owls',
+            maxLines: 2,
+            textAlign: TextAlign.left,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 28,
             ),
           ),
-        ),
-      ],
+          SizedBox(
+            height: 10,
+          ),
+          Scrollbar(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              padding: EdgeInsets.only(left: 8, right: 8),
+              child: Row(
+                children: _buildPeopleList(context),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
