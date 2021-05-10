@@ -36,8 +36,11 @@ class _WowlsHomePageState extends State<WowlsHomePage> {
               WowlsProducts(
                 height: parentSize.height / 4,
               ),
-              WowlsPeople(
-                height: parentSize.height / 4,
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 10),
+                child: WowlsPeople(
+                  height: parentSize.height / 4,
+                ),
               ),
             ],
           ),

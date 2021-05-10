@@ -32,7 +32,7 @@ abstract class PeopleData {
       ),
     ),
     'Lima.KRT': PeopleInfo(
-      name: 'Igor Garcia Costa',
+      name: 'Lucas Silva Lima',
       description: 'Ô, a desilusão. Ô, a decepção',
       image: Image.asset(
         'assets/images/166096347_172860711326908_2531234240470099110_n.jpg',
