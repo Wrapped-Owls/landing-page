@@ -15,7 +15,7 @@ class WowlsBanner extends StatelessWidget {
         minHeight: height,
         minWidth: contextSize.width / 2,
       ),
-      foregroundDecoration: BoxDecoration(
+      /*foregroundDecoration: BoxDecoration( //commented until know how to fix
         gradient: LinearGradient(
           colors: [
             Colors.transparent,
@@ -25,7 +25,7 @@ class WowlsBanner extends StatelessWidget {
           end: Alignment.bottomCenter,
           stops: [0.85, 1],
         ),
-      ),
+      ),*/
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
