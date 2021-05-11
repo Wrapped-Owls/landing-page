@@ -1,16 +1,13 @@
-# wrappedowls_landing_page
+# Wrapped Owls - Landing Page
 
-The landing page for WrappedOwls website
+The landing page for WrappedOwls website, you can find this site in production at [WrappedOwls](https://wrappedowl.com/#/)
 
-## Getting Started
+## Purpose
 
-This project is a starting point for a Flutter application.
+While learning more about Flutter and web renderer, this project was made to be a lading page for wrapped owls organization.
 
-A few resources to get you started if this is your first Flutter project:
+## Future
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+In near future, routing will be added to the project, to add the capability of use some functions for development spread in the web.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+(LICENSE)[./LICENSE]
