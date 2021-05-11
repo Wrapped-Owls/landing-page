@@ -12,5 +12,6 @@ In near future, routing will be added to the project, to add the capability of u
 
 ## Info
 
-[ROADMAP](./ROADMAP)
+[ROADMAP](./ROADMAP.md)
+
 [LICENSE](../LICENSE)
