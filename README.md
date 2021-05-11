@@ -10,4 +10,4 @@ While learning more about Flutter and web renderer, this project was made to be 
 
 In near future, routing will be added to the project, to add the capability of use some functions for development spread in the web.
 
-(LICENSE)[./LICENSE]
+[LICENSE](./LICENSE)
