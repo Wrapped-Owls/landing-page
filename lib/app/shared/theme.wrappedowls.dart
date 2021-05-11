@@ -17,7 +17,7 @@ enum UuuUhuComponents {
 }
 
 abstract class UuuUhuThemes {
-  static bool? _currentTheme;
+  static ThemeMode _currentTheme = ThemeMode.system;
   static const light = false;
   static const dark = true;
 
@@ -126,14 +126,14 @@ abstract class UuuUhuThemes {
   }
 
   static Color currentPalette(UuuUhuComponents desired) {
-    return _currentTheme == dark
+    return _currentTheme == ThemeMode.dark
         ? (darkColors[desired] ?? _defaultDark)
         : (lightColors[desired] ?? _defaultLight);
   }
 
   static Color colorOf(BuildContext context, UuuUhuComponents desired) {
     final tempTheme = _currentTheme;
-    setTheme(MediaQuery.of(context).platformBrightness);
+    setTheme(Theme.of(context).brightness);
     final color = currentPalette(desired);
     _currentTheme = tempTheme;
     return color;
@@ -148,19 +148,17 @@ abstract class UuuUhuThemes {
   }
 
   static ThemeMode currentThemeMode() {
-    if (_currentTheme != null) {
-      return _currentTheme! ? ThemeMode.dark : ThemeMode.light;
-    }
-    return ThemeMode.system;
+    return _currentTheme;
   }
 
-  static bool get currentTheme => _currentTheme ?? light;
+  static bool get currentTheme =>
+      _currentTheme == ThemeMode.dark ? dark : light;
 
   static set currentTheme(bool value) {
-    _currentTheme = value;
+    _currentTheme = value ? ThemeMode.dark : ThemeMode.light;
   }
 
   static void setTheme(Brightness? brightness) {
-    _currentTheme = brightness == Brightness.dark ? dark : light;
+    currentTheme = brightness == Brightness.dark ? dark : light;
   }
 }
