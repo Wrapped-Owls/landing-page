@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:wrappedowls_landing_page/core/util/app.info.dart';
 
@@ -22,6 +23,8 @@ class _WowlsHomePageState extends State<WowlsHomePage> {
     return Scaffold(
       appBar: WowlsNavbar.build(context),
       body: Scrollbar(
+        isAlwaysShown: kIsWeb,
+        showTrackOnHover: true,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
