@@ -7,6 +7,13 @@ class WowlsBanner extends StatelessWidget {
 
   const WowlsBanner({Key? key, this.height = 200}) : super(key: key);
 
+  Color _darkerColor(Color color) {
+    return color
+        .withBlue(color.blue - 4)
+        .withGreen(color.green - 6)
+        .withRed(color.red - 7);
+  }
+
   @override
   Widget build(BuildContext context) {
     final contextSize = MediaQuery.of(context).size;
@@ -32,7 +39,7 @@ class WowlsBanner extends StatelessWidget {
           end: Alignment.bottomCenter,
           colors: [
             UuuUhuThemes.currentPalette(UuuUhuComponents.DIALOG),
-            UuuUhuThemes.currentPalette(UuuUhuComponents.BAR),
+            _darkerColor(UuuUhuThemes.currentPalette(UuuUhuComponents.BAR)),
           ],
         ),
       ),
