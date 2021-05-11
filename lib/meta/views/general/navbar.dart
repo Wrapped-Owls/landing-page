@@ -1,22 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:wrappedowls_landing_page/app/shared/theme.wrappedowls.dart';
 import 'package:wrappedowls_landing_page/app/shared/wrappedowls.icons.dart';
 import 'package:wrappedowls_landing_page/core/util/global.functions.dart';
-
+import 'package:wrappedowls_landing_page/core/util/helpers/link.helper.dart';
 
 abstract class WowlsNavbar {
   static Widget buildLeading() {
     return IconButton(
-      onPressed: () async {
-        const url = 'https://wrappedowl.com/';
-        if (await canLaunch(url)) {
-          await launch(url);
-        } else {
-          throw 'Could not launch $url';
-        }
-      },
+      onPressed: launchLink('https://wrappedowl.com/'),
       icon: Icon(WrappedOwlsIcons.company_logo),
     );
   }

@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wrappedowls_landing_page/core/data/people.data.dart';
-import 'package:wrappedowls_landing_page/core/models/social.links.dart';
-import 'package:wrappedowls_landing_page/meta/widgets/people.card.dart';
+import 'package:wrappedowls_landing_page/meta/widgets/cards/people.card.dart';
 
 class WowlsPeople extends StatefulWidget {
   final double height;

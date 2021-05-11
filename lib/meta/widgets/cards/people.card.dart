@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:wrappedowls_landing_page/core/models/social.enum.dart';
 import 'package:wrappedowls_landing_page/core/models/social.links.dart';
+import 'package:wrappedowls_landing_page/core/util/helpers/link.helper.dart';
 
 class PeopleCard extends StatelessWidget {
   final double height;
@@ -26,14 +26,7 @@ class PeopleCard extends StatelessWidget {
     return ElevatedButton.icon(
       label: Text(social.label),
       icon: Icon(social.icon),
-      onPressed: () async {
-        final url = social.url + links.name(social);
-        if (await canLaunch(url)) {
-          await launch(url);
-        } else {
-          throw 'Could not launch $url';
-        }
-      },
+      onPressed: launchLink(social.url + links.name(social)),
     );
   }
 

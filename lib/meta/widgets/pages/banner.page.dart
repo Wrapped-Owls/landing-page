@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wrappedowls_landing_page/app/shared/theme.wrappedowls.dart';
+import 'package:wrappedowls_landing_page/core/util/helpers/link.helper.dart';
 
 class BannerPage extends StatelessWidget {
   List<Widget> _pageChildren(double width) {
@@ -36,7 +37,7 @@ class BannerPage extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(20.0)),
               ),
-              onPressed: () {},
+              onPressed: launchLink('https://github.com/Wrapped-Owls'),
               child: Padding(
                 padding: const EdgeInsets.symmetric(
                   vertical: 20.0,
@@ -52,6 +53,7 @@ class BannerPage extends StatelessWidget {
       ),
       Container(
         width: width,
+        padding: EdgeInsets.symmetric(vertical: 20),
         child: AspectRatio(
           aspectRatio: 1.6,
           child: Image.asset(
@@ -66,7 +68,7 @@ class BannerPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (constraints.maxWidth > 800) {
+        if (constraints.maxWidth > 620) {
           return Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: _pageChildren(constraints.biggest.width / 2),

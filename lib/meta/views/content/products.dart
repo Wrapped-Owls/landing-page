@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wrappedowls_landing_page/meta/widgets/product.card.dart';
+import 'package:wrappedowls_landing_page/meta/widgets/cards/product.card.dart';
 
 class WowlsProducts extends StatelessWidget {
   final double height;
