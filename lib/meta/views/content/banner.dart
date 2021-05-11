@@ -15,13 +15,24 @@ class WowlsBanner extends StatelessWidget {
         minHeight: height,
         minWidth: contextSize.width / 2,
       ),
+      foregroundDecoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Colors.transparent,
+            UuuUhuThemes.currentPalette(UuuUhuComponents.BACKGROUND),
+          ],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          stops: [0.85, 1],
+        ),
+      ),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
+          begin: Alignment.topLeft,
+          end: Alignment.bottomCenter,
           colors: [
-            UuuUhuThemes.currentPalette(UuuUhuComponents.BACKGROUND),
             UuuUhuThemes.currentPalette(UuuUhuComponents.DIALOG),
+            UuuUhuThemes.currentPalette(UuuUhuComponents.BAR),
           ],
         ),
       ),

@@ -147,9 +147,7 @@ abstract class UuuUhuThemes {
     return _generalTheme(darkColors, Brightness.dark);
   }
 
-  static ThemeMode currentThemeMode() {
-    return _currentTheme;
-  }
+  static ThemeMode get themeMode => _currentTheme;
 
   static bool get currentTheme =>
       _currentTheme == ThemeMode.dark ? dark : light;

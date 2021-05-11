@@ -10,6 +10,7 @@ class BannerPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            SizedBox(height: 20),
             Text(
               'Under \nConstruction',
               style: TextStyle(

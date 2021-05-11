@@ -30,7 +30,7 @@ class _WowlsAppState extends State<WowlsApp> {
       home: WowlsHomePage(),
       theme: UuuUhuThemes.getLight(),
       darkTheme: UuuUhuThemes.getDark(),
-      themeMode: UuuUhuThemes.currentThemeMode(),
+      themeMode: UuuUhuThemes.themeMode,
       debugShowCheckedModeBanner: false,
     );
   }
