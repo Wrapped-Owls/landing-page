@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 import 'app/shared/theme.wrappedowls.dart';
 import 'core/util/global.functions.dart';
@@ -18,6 +19,8 @@ class _WowlsAppState extends State<WowlsApp> {
   void initState() {
     super.initState();
     GlobalFunctions.setGlobalState = setState;
+    final brightness = SchedulerBinding.instance?.window.platformBrightness;
+    UuuUhuThemes.setTheme(brightness);
   }
 
   @override

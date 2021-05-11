@@ -17,9 +17,12 @@ enum UuuUhuComponents {
 }
 
 abstract class UuuUhuThemes {
-  static var currentTheme = false;
+  static bool? _currentTheme;
   static const light = false;
   static const dark = true;
+
+  static const _defaultDark = Color(0xFF5C6A74);
+  static const _defaultLight = Color(0xffcad5c3);
 
   static const Map<UuuUhuComponents, Color> darkColors = {
     UuuUhuComponents.BAR: Color(0xFF3E494A),
@@ -123,8 +126,17 @@ abstract class UuuUhuThemes {
   }
 
   static Color currentPalette(UuuUhuComponents desired) {
-    return (currentTheme ? darkColors[desired] : lightColors[desired]) ??
-        Colors.teal;
+    return _currentTheme == dark
+        ? (darkColors[desired] ?? _defaultDark)
+        : (lightColors[desired] ?? _defaultLight);
+  }
+
+  static Color colorOf(BuildContext context, UuuUhuComponents desired) {
+    final tempTheme = _currentTheme;
+    setTheme(MediaQuery.of(context).platformBrightness);
+    final color = currentPalette(desired);
+    _currentTheme = tempTheme;
+    return color;
   }
 
   static ThemeData getLight() {
@@ -136,6 +148,19 @@ abstract class UuuUhuThemes {
   }
 
   static ThemeMode currentThemeMode() {
-    return currentTheme ? ThemeMode.dark : ThemeMode.light;
+    if (_currentTheme != null) {
+      return _currentTheme! ? ThemeMode.dark : ThemeMode.light;
+    }
+    return ThemeMode.system;
+  }
+
+  static bool get currentTheme => _currentTheme ?? light;
+
+  static set currentTheme(bool value) {
+    _currentTheme = value;
+  }
+
+  static void setTheme(Brightness? brightness) {
+    _currentTheme = brightness == Brightness.dark ? dark : light;
   }
 }
