@@ -1,0 +1,86 @@
+import 'package:flutter/material.dart';
+
+class WowlsCustomGrid extends StatelessWidget {
+  final List<Widget> children;
+  final double crossAxisSpacing;
+  final double mainAxisSpacing;
+
+  const WowlsCustomGrid({
+    Key? key,
+    required this.children,
+    this.crossAxisSpacing = 0.04,
+    this.mainAxisSpacing = 14,
+  })  : assert(crossAxisSpacing < 0.6, 'spacing should be lesser than 60%'),
+        super(key: key);
+
+  ConstrainedBox _limitSize(Widget child, double width) {
+    return ConstrainedBox(
+      constraints: BoxConstraints.tightFor(width: width),
+      child: child,
+    );
+  }
+
+  Row _buildRowItems(List<Widget> children, double parentWidth) {
+    final constrainedChildren = <Widget>[];
+    final spacing = (parentWidth * crossAxisSpacing);
+    final totalSpacing = spacing * children.length - 1;
+    for (var index = 0; index < children.length; index++) {
+      final child = children[index];
+      if (index > 0) {
+        constrainedChildren.add(
+          SizedBox(
+            width: spacing,
+          ),
+        );
+      }
+      constrainedChildren.add(
+        _limitSize(child, (parentWidth / children.length) - totalSpacing),
+      );
+    }
+    return Row(
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: constrainedChildren,
+    );
+  }
+
+  Widget _buildElements(BuildContext context, BoxConstraints constraints) {
+    final parentWidth = constraints.biggest.width;
+    var crossCount = 2;
+    if (parentWidth >= 650) {
+      crossCount = 3;
+    }
+    if (parentWidth > 1200) {
+      crossCount = 4;
+    }
+    if (children.length <= crossCount) {
+      return _buildRowItems(children, parentWidth);
+    }
+    final columnChildren = <Widget>[];
+    final _tempChildren = <Widget>[];
+    var count = 0;
+    for (final child in children) {
+      _tempChildren.add(child);
+      if (count >= crossCount) {
+        if (columnChildren.isNotEmpty) {
+          columnChildren.add(SizedBox(height: mainAxisSpacing));
+        }
+        columnChildren.add(_buildRowItems(_tempChildren, parentWidth));
+        _tempChildren.clear();
+        count = 0;
+      }
+    }
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
+      children: children,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(builder: _buildElements);
+  }
+}

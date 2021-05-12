@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wrappedowls_landing_page/app/shared/theme.wrappedowls.dart';
 import 'package:wrappedowls_landing_page/core/data/about.data.dart';
+import 'package:wrappedowls_landing_page/meta/widgets/cards/info.card.dart';
+import 'package:wrappedowls_landing_page/meta/widgets/layout/grid.wowls.dart';
 
 class WowlsAbout extends StatelessWidget {
   final double height;
@@ -8,62 +10,7 @@ class WowlsAbout extends StatelessWidget {
   const WowlsAbout({Key? key, this.height = 200}) : super(key: key);
 
   Widget _buildCard(IconData icon, String title, String objective) {
-    return Card(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 8),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon),
-            Text(
-              title,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.w600,
-                color: UuuUhuThemes.currentPalette(UuuUhuComponents.SELECT_TEXT),
-              ),
-            ),
-            Text(
-              objective,
-              textAlign: TextAlign.justify,
-              softWrap: true,
-              style: TextStyle(
-                fontStyle: FontStyle.italic,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildElements(BuildContext context, BoxConstraints constraints) {
-    var crossCount = 2;
-    if (constraints.biggest.width >= 650) {
-      crossCount = 3;
-    }
-    if (constraints.biggest.width > 800) {
-      crossCount = 4;
-    }
-    return Container(
-      constraints: BoxConstraints(maxHeight: 200),
-      child: GridView.count(
-        scrollDirection: Axis.vertical,
-        mainAxisSpacing: 20,
-        crossAxisCount: crossCount,
-        crossAxisSpacing: constraints.maxWidth * 0.1,
-        children: [
-          _buildCard(Icons.wysiwyg, 'Open Source', AboutData.openSource),
-          _buildCard(
-            Icons.assignment_ind,
-            'User Experience',
-            AboutData.userExperience,
-          ),
-        ],
-      ),
-    );
+    return InfoCard(icon: icon, title: title, objective: objective);
   }
 
   @override
@@ -88,14 +35,30 @@ class WowlsAbout extends StatelessWidget {
             indent: ctxSize.width * 0.20,
             endIndent: ctxSize.width * 0.20,
           ),
-          Text(
-            AboutData.objective,
-            style: TextStyle(fontSize: 16),
-            softWrap: true,
-            textAlign: TextAlign.center,
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              maxWidth: ctxSize.width > 1000 ? 480 : (ctxSize.width * 0.8),
+            ),
+            child: Text(
+              AboutData.objective,
+              style: TextStyle(fontSize: 16),
+              softWrap: true,
+              textAlign: TextAlign.center,
+            ),
           ),
-          SizedBox(height: 12,),
-          LayoutBuilder(builder: _buildElements),
+          SizedBox(
+            height: 12,
+          ),
+          WowlsCustomGrid(
+            children: [
+              _buildCard(Icons.wysiwyg, 'Open Source', AboutData.openSource),
+              _buildCard(
+                Icons.assignment_ind,
+                'User Experience',
+                AboutData.userExperience,
+              ),
+            ],
+          ),
         ],
       ),
     );
