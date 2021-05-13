@@ -36,7 +36,7 @@ class InfoCard extends StatelessWidget {
                 fontSize: 28,
                 fontWeight: FontWeight.w600,
                 color: UuuUhuThemes.currentPalette(
-                  UuuUhuComponents.SELECT_TEXT,
+                  UuuUhuComponents.CARD_TITLE,
                 ),
               ),
             ),

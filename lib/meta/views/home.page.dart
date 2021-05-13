@@ -45,14 +45,15 @@ class _WowlsHomePageState extends State<WowlsHomePage> {
                   height: parentSize.height / 4,
                 ),
               ),
+              ConstrainedBox(
+                constraints: BoxConstraints.tight(Size.fromHeight(100)),
+                child: WowlsFooter(),
+              ),
             ],
           ),
         ),
       ),
-      bottomNavigationBar: ConstrainedBox(
-        constraints: BoxConstraints.tight(Size.fromHeight(60)),
-        child: WowlsFooter(),
-      ),
+      /*bottomNavigationBar: ,*/
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showAboutDialog(
