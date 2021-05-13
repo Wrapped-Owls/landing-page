@@ -16,44 +16,41 @@ class InfoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      borderOnForeground: true,
-      child: Padding(
-        padding: EdgeInsets.all(20),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon),
-            SizedBox(
-              height: 6,
-            ),
-            Text(
-              title,
-              textAlign: TextAlign.center,
-              softWrap: true,
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.w600,
-                color: UuuUhuThemes.currentPalette(
-                  UuuUhuComponents.CARD_TITLE,
-                ),
+    return Padding(
+      padding: EdgeInsets.all(20),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(icon),
+          SizedBox(
+            height: 6,
+          ),
+          Text(
+            title,
+            textAlign: TextAlign.center,
+            softWrap: true,
+            style: TextStyle(
+              fontSize: 28,
+              fontWeight: FontWeight.w600,
+              color: UuuUhuThemes.currentPalette(
+                UuuUhuComponents.CARD_TITLE,
               ),
             ),
-            Divider(
-              indent: 40,
-              endIndent: 40,
+          ),
+          Divider(
+            indent: 40,
+            endIndent: 40,
+          ),
+          Text(
+            objective,
+            textAlign: TextAlign.justify,
+            softWrap: true,
+            style: TextStyle(
+              fontStyle: FontStyle.italic,
             ),
-            Text(
-              objective,
-              textAlign: TextAlign.justify,
-              softWrap: true,
-              style: TextStyle(
-                fontStyle: FontStyle.italic,
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
