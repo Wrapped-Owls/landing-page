@@ -26,21 +26,21 @@ class WowlsCustomGrid extends StatelessWidget {
     final totalSpacing = spacing * children.length - 1;
     for (var index = 0; index < children.length; index++) {
       final child = children[index];
-      if (index > 0) {
+      /*if (index > 0) {
         constrainedChildren.add(
           SizedBox(
             width: spacing,
           ),
         );
-      }
+      }*/
       constrainedChildren.add(
-        _limitSize(child, (parentWidth / children.length) - totalSpacing),
+        _limitSize(child, (parentWidth - totalSpacing) / children.length),
       );
     }
     return Row(
       mainAxisSize: MainAxisSize.max,
       crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: constrainedChildren,
     );
   }
@@ -62,6 +62,7 @@ class WowlsCustomGrid extends StatelessWidget {
     var count = 0;
     for (final child in children) {
       _tempChildren.add(child);
+      count+=1;
       if (count >= crossCount) {
         if (columnChildren.isNotEmpty) {
           columnChildren.add(SizedBox(height: mainAxisSpacing));
@@ -71,11 +72,14 @@ class WowlsCustomGrid extends StatelessWidget {
         count = 0;
       }
     }
+    if (_tempChildren.isNotEmpty) {
+      columnChildren.add(_buildRowItems(_tempChildren, parentWidth));
+    }
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
-      children: children,
+      children: columnChildren,
     );
   }
 

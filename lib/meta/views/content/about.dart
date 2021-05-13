@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wrappedowls_landing_page/app/shared/theme.wrappedowls.dart';
+import 'package:wrappedowls_landing_page/app/shared/wrappedowls.icons.dart';
 import 'package:wrappedowls_landing_page/core/data/about.data.dart';
 import 'package:wrappedowls_landing_page/meta/widgets/cards/info.card.dart';
 import 'package:wrappedowls_landing_page/meta/widgets/layout/grid.wowls.dart';
@@ -37,7 +38,7 @@ class WowlsAbout extends StatelessWidget {
           ),
           ConstrainedBox(
             constraints: BoxConstraints(
-              maxWidth: ctxSize.width > 1000 ? 480 : (ctxSize.width * 0.8),
+              maxWidth: ctxSize.width > 1000 ? 800 : (ctxSize.width * 0.8),
             ),
             child: Text(
               AboutData.objective,
@@ -56,6 +57,26 @@ class WowlsAbout extends StatelessWidget {
                 Icons.assignment_ind,
                 'User Experience',
                 AboutData.userExperience,
+              ),
+              _buildCard(
+                Icons.videogame_asset,
+                'Game focus',
+                AboutData.gameSystems,
+              ),
+              _buildCard(
+                WrappedOwlsIcons.friggraynd_cvheip,
+                'Our games',
+                AboutData.ourGames,
+              ),
+              _buildCard(
+                Icons.assignment_ind_outlined,
+                'Custom Experience',
+                AboutData.customExperience,
+              ),
+              _buildCard(
+                Icons.fingerprint,
+                'Privacy',
+                AboutData.privacy,
               ),
             ],
           ),
