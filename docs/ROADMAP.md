@@ -6,6 +6,8 @@ Roadmap for **WrappedOwls** landpage
   - [x] Create dark and light themes
   - [x] Detect system themeMode and use
   - [x] Show licenses
+  - [ ] Change Locale
+    - [ ] Detect Current locale
 - [ ] Elements
   - [x] Create Banner
   - [ ] Create people cards
