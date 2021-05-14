@@ -30,7 +30,8 @@ class WowlsAbout extends StatelessWidget {
               fontWeight: FontWeight.bold,
               fontSize: 30,
             ),
-            overflow: TextOverflow.clip,
+            softWrap: true,
+            textAlign: TextAlign.center,
           ),
           Divider(
             indent: ctxSize.width * 0.20,

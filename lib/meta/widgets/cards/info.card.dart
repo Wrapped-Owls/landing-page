@@ -44,7 +44,7 @@ class InfoCard extends StatelessWidget {
           ),
           Text(
             objective,
-            textAlign: TextAlign.justify,
+            textAlign: TextAlign.center,
             softWrap: true,
             style: TextStyle(
               fontStyle: FontStyle.italic,
