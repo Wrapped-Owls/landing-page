@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:wrappedowls_landing_page/core/util/app.info.dart';
+import 'package:wrappedowls_landing_page/meta/views/content/contact_us.dart';
 
 import 'content/about.dart';
 import 'content/banner.dart';
@@ -45,6 +46,7 @@ class _WowlsHomePageState extends State<WowlsHomePage> {
                   height: parentSize.height / 4,
                 ),
               ),
+              WowlsContact(),
               ConstrainedBox(
                 constraints: BoxConstraints(minHeight: 100),
                 child: WowlsFooter(),
