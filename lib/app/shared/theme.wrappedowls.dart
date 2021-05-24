@@ -7,6 +7,7 @@ enum UuuUhuComponents {
   DIALOG,
   CARD,
   CARD_TITLE,
+  TAB_LABEL,
   DIVIDER,
   CHECKBOX,
   BUTTON,
@@ -34,6 +35,7 @@ abstract class UuuUhuThemes {
     UuuUhuComponents.DIALOG: Color(0xFF455A64),
     UuuUhuComponents.CARD: Color(0xFF576161),
     UuuUhuComponents.CARD_TITLE: Color(0xFF7AA8B4),
+    UuuUhuComponents.TAB_LABEL: Color(0xFF6D8E95),
     UuuUhuComponents.CHECKBOX: Color(0xFF4BACBF),
     UuuUhuComponents.BUTTON: Color(0xFF4BACBF),
     UuuUhuComponents.INPUT: Color(0xFF67A2F5),
@@ -52,6 +54,7 @@ abstract class UuuUhuThemes {
     UuuUhuComponents.DIALOG: Color(0xFFc9d6d6),
     UuuUhuComponents.CARD: Color(0xdadcdad3),
     UuuUhuComponents.CARD_TITLE: Color(0xFF243622),
+    UuuUhuComponents.TAB_LABEL: Color(0xFF2E4536),
     UuuUhuComponents.CHECKBOX: Color(0xFF558a6a),
     UuuUhuComponents.BUTTON: Color(0xFF69F0AE),
     UuuUhuComponents.INPUT: Color(0xFF1016B3),
@@ -85,6 +88,10 @@ abstract class UuuUhuThemes {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.0),
         ),
+      ),
+      tabBarTheme: TabBarTheme(
+        labelColor: palette[UuuUhuComponents.SELECT_TEXT],
+        unselectedLabelColor: palette[UuuUhuComponents.TAB_LABEL],
       ),
       snackBarTheme: SnackBarThemeData(backgroundColor: Colors.grey),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
