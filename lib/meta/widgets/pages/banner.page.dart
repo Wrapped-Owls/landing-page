@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wrappedowls_landing_page/app/shared/theme.enum.dart';
 import 'package:wrappedowls_landing_page/app/shared/theme.wrappedowls.dart';
 import 'package:wrappedowls_landing_page/core/util/helpers/link.helper.dart';
 
@@ -16,7 +17,7 @@ class BannerPage extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 40.0,
-                color: UuuUhuThemes.currentPalette(UuuUhuComponents.TITLE_TEXT),
+                color: UuuUhuThemes.currentPalette(UuuUhuPalette.TITLE_TEXT),
               ),
             ),
             Padding(
@@ -28,13 +29,13 @@ class BannerPage extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 16.0,
                   color: UuuUhuThemes.currentPalette(
-                    UuuUhuComponents.APPBAR_TEXT,
+                    UuuUhuPalette.APPBAR_TEXT,
                   ),
                 ),
               ),
             ),
             MaterialButton(
-              color: UuuUhuThemes.currentPalette(UuuUhuComponents.BUTTON),
+              color: UuuUhuThemes.currentPalette(UuuUhuPalette.BUTTON),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(20.0)),
               ),

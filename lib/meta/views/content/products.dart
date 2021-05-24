@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swipper/flutter_card_swiper.dart';
+import 'package:wrappedowls_landing_page/app/shared/theme.enum.dart';
 import 'package:wrappedowls_landing_page/app/shared/theme.wrappedowls.dart';
 import 'package:wrappedowls_landing_page/app/shared/wrappedowls.icons.dart';
 import 'package:wrappedowls_landing_page/core/data/games_product.data.dart';
@@ -29,7 +30,7 @@ class WowlsProducts extends StatelessWidget {
           Text(
             'Some of our products',
             style: TextStyle(
-              color: UuuUhuThemes.currentPalette(UuuUhuComponents.APPBAR_TEXT),
+              color: UuuUhuThemes.currentPalette(UuuUhuPalette.APPBAR_TEXT),
               fontWeight: FontWeight.bold,
               fontSize: 30,
             ),
@@ -49,7 +50,7 @@ class WowlsProducts extends StatelessWidget {
                       icon: Icon(
                         WrappedOwlsIcons.friggraynd_enemies,
                         color: UuuUhuThemes.currentPalette(
-                            UuuUhuComponents.CARD_TITLE),
+                            UuuUhuPalette.CARD_TITLE),
                       ),
                       child: Text('Games'),
                     ),
@@ -57,7 +58,7 @@ class WowlsProducts extends StatelessWidget {
                       icon: Icon(
                         Icons.phone_android,
                         color: UuuUhuThemes.currentPalette(
-                            UuuUhuComponents.CARD_TITLE),
+                            UuuUhuPalette.CARD_TITLE),
                       ),
                       child: Text('Apps'),
                     )

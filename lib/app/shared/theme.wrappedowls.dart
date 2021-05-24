@@ -1,79 +1,21 @@
 import 'package:flutter/material.dart';
 
-enum UuuUhuComponents {
-  BAR,
-  BACKGROUND,
-  FAB,
-  DIALOG,
-  CARD,
-  CARD_TITLE,
-  TAB_LABEL,
-  DIVIDER,
-  CHECKBOX,
-  BUTTON,
-  INPUT,
-  SELECT_TEXT,
-  TITLE_TEXT,
-  APPBAR_TEXT,
-  BOTTOM_SELECTED,
-  BOTTOM_UNSELECTED
-}
+import 'theme.enum.dart';
 
 abstract class UuuUhuThemes {
   static ThemeMode _currentTheme = ThemeMode.system;
   static const light = false;
   static const dark = true;
 
-  static const _defaultDark = Color(0xFF5C6A74);
-  static const _defaultLight = Color(0xffcad5c3);
-
-  static const Map<UuuUhuComponents, Color> darkColors = {
-    UuuUhuComponents.BAR: Color(0xFF3E494A),
-    UuuUhuComponents.BACKGROUND: Color(0xFF202626),
-    UuuUhuComponents.FAB: Color(0xFF90CAF9),
-    UuuUhuComponents.DIVIDER: Color(0xFF8ea9ab),
-    UuuUhuComponents.DIALOG: Color(0xFF455A64),
-    UuuUhuComponents.CARD: Color(0xFF576161),
-    UuuUhuComponents.CARD_TITLE: Color(0xFF7AA8B4),
-    UuuUhuComponents.TAB_LABEL: Color(0xFF6D8E95),
-    UuuUhuComponents.CHECKBOX: Color(0xFF4BACBF),
-    UuuUhuComponents.BUTTON: Color(0xFF4BACBF),
-    UuuUhuComponents.INPUT: Color(0xFF67A2F5),
-    UuuUhuComponents.SELECT_TEXT: Color(0xFF557B87),
-    UuuUhuComponents.TITLE_TEXT: Color(0xFFA5D6A7),
-    UuuUhuComponents.APPBAR_TEXT: Color(0xB3FFFFFF),
-    UuuUhuComponents.BOTTOM_SELECTED: Color(0xFFFFA000),
-    UuuUhuComponents.BOTTOM_UNSELECTED: Color(0xB3FFFFFF),
-  };
-
-  static const Map<UuuUhuComponents, Color> lightColors = {
-    UuuUhuComponents.BAR: Color(0xFFd2e9f7),
-    UuuUhuComponents.BACKGROUND: Color(0xFFe3e3e3),
-    UuuUhuComponents.FAB: Color(0xFF6b6475),
-    UuuUhuComponents.DIVIDER: Color(0xFF607D8B),
-    UuuUhuComponents.DIALOG: Color(0xFFc9d6d6),
-    UuuUhuComponents.CARD: Color(0xdadcdad3),
-    UuuUhuComponents.CARD_TITLE: Color(0xFF243622),
-    UuuUhuComponents.TAB_LABEL: Color(0xFF2E4536),
-    UuuUhuComponents.CHECKBOX: Color(0xFF558a6a),
-    UuuUhuComponents.BUTTON: Color(0xFF69F0AE),
-    UuuUhuComponents.INPUT: Color(0xFF1016B3),
-    UuuUhuComponents.SELECT_TEXT: Color(0xFF3C565E),
-    UuuUhuComponents.TITLE_TEXT: Color(0xFF8a8807),
-    UuuUhuComponents.APPBAR_TEXT: Color(0x8A000000),
-    UuuUhuComponents.BOTTOM_SELECTED: Color(0xFF11993a),
-    UuuUhuComponents.BOTTOM_UNSELECTED: Color(0xFF2e2626),
-  };
-
   static ThemeData _generalTheme(
-    Map<UuuUhuComponents, Color> palette,
+    ThemeMode mode,
     Brightness brightness,
   ) {
     return ThemeData(
       brightness: brightness,
       visualDensity: VisualDensity.adaptivePlatformDensity,
       dialogTheme: DialogTheme(
-        backgroundColor: palette[UuuUhuComponents.DIALOG],
+        backgroundColor: UuuUhuPalette.DIALOG.fromTheme(mode),
         titleTextStyle: TextStyle(
           fontStyle: FontStyle.normal,
           fontSize: 18,
@@ -84,24 +26,24 @@ abstract class UuuUhuThemes {
         ),
       ),
       cardTheme: CardTheme(
-        color: palette[UuuUhuComponents.CARD],
+        color: UuuUhuPalette.CARD.fromTheme(mode),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.0),
         ),
       ),
       tabBarTheme: TabBarTheme(
-        labelColor: palette[UuuUhuComponents.SELECT_TEXT],
-        unselectedLabelColor: palette[UuuUhuComponents.TAB_LABEL],
+        labelColor: UuuUhuPalette.SELECT_TEXT.fromTheme(mode),
+        unselectedLabelColor: UuuUhuPalette.TAB_LABEL.fromTheme(mode),
       ),
       snackBarTheme: SnackBarThemeData(backgroundColor: Colors.grey),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         shape: BeveledRectangleBorder(
           borderRadius: BorderRadius.circular(26.0),
         ),
-        backgroundColor: palette[UuuUhuComponents.FAB],
+        backgroundColor: UuuUhuPalette.FAB.fromTheme(mode),
       ),
       inputDecorationTheme: InputDecorationTheme(
-        fillColor: palette[UuuUhuComponents.INPUT],
+        fillColor: UuuUhuPalette.INPUT.fromTheme(mode),
         labelStyle: TextStyle(
           fontFamily: 'Poppins',
         ),
@@ -111,46 +53,46 @@ abstract class UuuUhuThemes {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(color: palette[UuuUhuComponents.INPUT]!),
+          borderSide: BorderSide(color: UuuUhuPalette.INPUT.fromTheme(mode)),
         ),
       ),
       textSelectionTheme: TextSelectionThemeData(
-        selectionColor: palette[UuuUhuComponents.SELECT_TEXT],
-        selectionHandleColor: palette[UuuUhuComponents.SELECT_TEXT],
-        cursorColor: palette[UuuUhuComponents.SELECT_TEXT],
+        selectionColor: UuuUhuPalette.SELECT_TEXT.fromTheme(mode),
+        selectionHandleColor: UuuUhuPalette.SELECT_TEXT.fromTheme(mode),
+        cursorColor: UuuUhuPalette.SELECT_TEXT.fromTheme(mode),
       ),
       buttonTheme: ButtonThemeData(
-        buttonColor: palette[UuuUhuComponents.BUTTON],
+        buttonColor: UuuUhuPalette.BUTTON.fromTheme(mode),
         textTheme: ButtonTextTheme.primary,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
         ),
       ),
       dividerTheme: DividerThemeData(
-        color: palette[UuuUhuComponents.DIVIDER],
+        color: UuuUhuPalette.DIVIDER.fromTheme(mode),
       ),
       //checkbox
-      toggleableActiveColor: palette[UuuUhuComponents.CHECKBOX],
+      toggleableActiveColor: UuuUhuPalette.CHECKBOX.fromTheme(mode),
       //end-checkbox
-      canvasColor: palette[UuuUhuComponents.BACKGROUND],
-      scaffoldBackgroundColor: palette[UuuUhuComponents.BACKGROUND],
+      canvasColor: UuuUhuPalette.BACKGROUND.fromTheme(mode),
+      scaffoldBackgroundColor: UuuUhuPalette.BACKGROUND.fromTheme(mode),
       appBarTheme: AppBarTheme(
-        color: palette[UuuUhuComponents.BAR],
-        iconTheme: IconThemeData(color: palette[UuuUhuComponents.APPBAR_TEXT]),
+        color: UuuUhuPalette.BAR.fromTheme(mode),
+        iconTheme: IconThemeData(
+          color: UuuUhuPalette.APPBAR_TEXT.fromTheme(mode),
+        ),
       ),
       bottomAppBarTheme: BottomAppBarTheme(
-        color: palette[UuuUhuComponents.BAR],
+        color: UuuUhuPalette.BAR.fromTheme(mode),
       ),
     );
   }
 
-  static Color currentPalette(UuuUhuComponents desired) {
-    return _currentTheme == ThemeMode.dark
-        ? (darkColors[desired] ?? _defaultDark)
-        : (lightColors[desired] ?? _defaultLight);
+  static Color currentPalette(UuuUhuPalette desired) {
+    return _currentTheme == ThemeMode.dark ? (desired.dark) : (desired.light);
   }
 
-  static Color colorOf(BuildContext context, UuuUhuComponents desired) {
+  static Color colorOf(BuildContext context, UuuUhuPalette desired) {
     final tempTheme = _currentTheme;
     setTheme(Theme.of(context).brightness);
     final color = currentPalette(desired);
@@ -159,11 +101,11 @@ abstract class UuuUhuThemes {
   }
 
   static ThemeData getLight() {
-    return _generalTheme(lightColors, Brightness.light);
+    return _generalTheme(ThemeMode.light, Brightness.light);
   }
 
   static ThemeData getDark() {
-    return _generalTheme(darkColors, Brightness.dark);
+    return _generalTheme(ThemeMode.dark, Brightness.dark);
   }
 
   static ThemeMode get themeMode => _currentTheme;

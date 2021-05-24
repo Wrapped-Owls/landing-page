@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wrappedowls_landing_page/app/shared/theme.enum.dart';
 import 'package:wrappedowls_landing_page/app/shared/theme.wrappedowls.dart';
 import 'package:wrappedowls_landing_page/meta/widgets/pages/banner.page.dart';
 
@@ -38,8 +39,8 @@ class WowlsBanner extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomCenter,
           colors: [
-            UuuUhuThemes.currentPalette(UuuUhuComponents.DIALOG),
-            _darkerColor(UuuUhuThemes.currentPalette(UuuUhuComponents.BAR)),
+            UuuUhuThemes.currentPalette(UuuUhuPalette.DIALOG),
+            _darkerColor(UuuUhuThemes.currentPalette(UuuUhuPalette.BAR)),
           ],
         ),
       ),

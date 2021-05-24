@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:wrappedowls_landing_page/app/shared/theme.enum.dart';
 import 'package:wrappedowls_landing_page/app/shared/theme.wrappedowls.dart';
 import 'package:wrappedowls_landing_page/app/shared/wrappedowls.icons.dart';
 
@@ -61,7 +62,7 @@ class WowlsFooter extends StatelessWidget {
     return Container(
       color: backgroundColor ??
           UuuUhuThemes.currentPalette(
-            UuuUhuComponents.DIALOG,
+            UuuUhuPalette.DIALOG,
           ),
       child: Align(
         alignment: alignment,

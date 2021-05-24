@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:wrappedowls_landing_page/app/shared/theme.enum.dart';
 import 'package:wrappedowls_landing_page/app/shared/theme.wrappedowls.dart';
 
 class InfoCard extends StatelessWidget {
@@ -34,7 +35,7 @@ class InfoCard extends StatelessWidget {
               fontSize: 28,
               fontWeight: FontWeight.w600,
               color: UuuUhuThemes.currentPalette(
-                UuuUhuComponents.CARD_TITLE,
+                UuuUhuPalette.CARD_TITLE,
               ),
             ),
           ),

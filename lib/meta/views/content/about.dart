@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wrappedowls_landing_page/app/shared/theme.enum.dart';
 import 'package:wrappedowls_landing_page/app/shared/theme.wrappedowls.dart';
 import 'package:wrappedowls_landing_page/app/shared/wrappedowls.icons.dart';
 import 'package:wrappedowls_landing_page/core/data/about.data.dart';
@@ -26,7 +27,7 @@ class WowlsAbout extends StatelessWidget {
           Text(
             AboutData.title,
             style: TextStyle(
-              color: UuuUhuThemes.currentPalette(UuuUhuComponents.APPBAR_TEXT),
+              color: UuuUhuThemes.currentPalette(UuuUhuPalette.APPBAR_TEXT),
               fontWeight: FontWeight.bold,
               fontSize: 30,
             ),

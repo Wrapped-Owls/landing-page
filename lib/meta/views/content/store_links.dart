@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wrappedowls_landing_page/app/shared/theme.enum.dart';
 import 'package:wrappedowls_landing_page/app/shared/theme.wrappedowls.dart';
 
 class WowlsStore extends StatelessWidget {
@@ -21,7 +22,7 @@ class WowlsStore extends StatelessWidget {
           Text(
             'Take a look on some of our apps',
             style: TextStyle(
-              color: UuuUhuThemes.currentPalette(UuuUhuComponents.APPBAR_TEXT),
+              color: UuuUhuThemes.currentPalette(UuuUhuPalette.APPBAR_TEXT),
               fontWeight: FontWeight.bold,
               fontSize: 30,
             ),
