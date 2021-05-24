@@ -46,7 +46,7 @@ class _WowlsHomePageState extends State<WowlsHomePage> {
                 ),
               ),
               ConstrainedBox(
-                constraints: BoxConstraints.tight(Size.fromHeight(100)),
+                constraints: BoxConstraints(minHeight: 100),
                 child: WowlsFooter(),
               ),
             ],

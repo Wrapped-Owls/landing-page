@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:wrappedowls_landing_page/app/shared/theme.wrappedowls.dart';
 import 'package:wrappedowls_landing_page/core/models/download.enum.dart';
 import 'package:wrappedowls_landing_page/core/models/value/product.info.dart';
 import 'package:wrappedowls_landing_page/core/util/helpers/link.helper.dart';
@@ -42,7 +43,9 @@ class ProductCard extends StatelessWidget {
               subtitle: Text(
                 info.subtitle,
                 style: TextStyle(
-                  color: Colors.black.withOpacity(0.6),
+                  color: UuuUhuThemes.currentPalette(
+                    UuuUhuComponents.TITLE_TEXT,
+                  ).withOpacity(0.6),
                   fontSize: 18,
                 ),
               ),
