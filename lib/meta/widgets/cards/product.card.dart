@@ -1,50 +1,78 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:wrappedowls_landing_page/core/models/download.enum.dart';
+import 'package:wrappedowls_landing_page/core/models/value/product.info.dart';
+import 'package:wrappedowls_landing_page/core/util/helpers/link.helper.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({Key? key}) : super(key: key);
+  final ProductInfo info;
+
+  const ProductCard({Key? key, required this.info}) : super(key: key);
+
+  Widget _buildDownloadButton(DownloadLinks link) {
+    return ElevatedButton.icon(
+      label: Text('Download for ${link.label}'),
+      icon: Icon(link.icon),
+      onPressed: launchLink(info.links.value(link)),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
+    final parentSize = MediaQuery.of(context).size;
     return ConstrainedBox(
       constraints: BoxConstraints.tightFor(width: 200),
       child: Card(
         clipBehavior: Clip.antiAlias,
         child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             ListTile(
-              leading: Icon(Icons.arrow_drop_down_circle),
-              title: const Text('Product A'),
+              leading: IconButton(
+                icon: Icon(Icons.info),
+                onPressed: () {
+                  print(info.description);
+                },
+              ),
+              title: Text(
+                info.name,
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+              ),
               subtitle: Text(
-                'Game subtitle or Genres',
-                style: TextStyle(color: Colors.black.withOpacity(0.6)),
+                info.subtitle,
+                style: TextStyle(
+                  color: Colors.black.withOpacity(0.6),
+                  fontSize: 18,
+                ),
               ),
             ),
-            Padding(
+            Image(
+              image: info.image.image,
+              width: parentSize.width * 0.66,
+              height: parentSize.height * 0.5,
+              fit: BoxFit.fitHeight,
+            ),
+            /*Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
-                'About the game',
-                style: TextStyle(color: Colors.black.withOpacity(0.6)),
+                info.description,
+                style: TextStyle(
+                  color: Colors.black.withOpacity(0.6),
+                  fontSize: 18,
+                ),
+                softWrap: true,
+                textAlign: TextAlign.center,
               ),
-            ),
-            Image.asset('assets/images/166096347_172860711326908_2531234240470099110_n.jpg'),
+            ),*/
             ButtonBar(
               alignment: MainAxisAlignment.start,
+              overflowButtonSpacing: 10,
+              mainAxisSize: MainAxisSize.min,
+              buttonAlignedDropdown: true,
               children: [
-                TextButton.icon(
-                  icon: Icon(FontAwesomeIcons.linux),
-                  label: const Text('Download for Linux'),
-                  onPressed: () {
-                    // Perform some action
-                  },
-                ),
-                TextButton.icon(
-                  icon: Icon(FontAwesomeIcons.windows),
-                  label: const Text('Download for Windows'),
-                  onPressed: () {
-                    // Perform some action
-                  },
-                ),
+                _buildDownloadButton(DownloadLinks.windows),
+                _buildDownloadButton(DownloadLinks.linux),
               ],
             ),
           ],

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_card_swipper/flutter_card_swiper.dart';
 import 'package:wrappedowls_landing_page/app/shared/theme.wrappedowls.dart';
 import 'package:wrappedowls_landing_page/app/shared/wrappedowls.icons.dart';
+import 'package:wrappedowls_landing_page/core/data/games_product.data.dart';
 import 'package:wrappedowls_landing_page/meta/widgets/cards/product.card.dart';
 
 class WowlsProducts extends StatelessWidget {
@@ -61,7 +63,30 @@ class WowlsProducts extends StatelessWidget {
                     )
                   ],
                 ),
-                ProductCard(),
+                ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxHeight: ctxSize.height * 0.84,
+                    maxWidth: 1000,
+                  ),
+                  child: TabBarView(
+                    children: [
+                      Swiper(
+                        itemBuilder: (BuildContext context, int index) {
+                          return ProductCard(
+                            info: GamesProductData.products[index],
+                          );
+                        },
+                        autoplay: true,
+                        itemCount: GamesProductData.products.length,
+                        pagination: SwiperPagination(),
+                        control: SwiperControl(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                        ),
+                      ),
+                      ProductCard(info: GamesProductData.products[0]),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
