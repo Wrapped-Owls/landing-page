@@ -14,11 +14,11 @@ Roadmap for **WrappedOwls** landpage
     - [ ] Show link buttons only if has a valid link
     - [ ] Align in a grid
   - [ ] Create product cards
-    - [ ] Create a tab for `games` and `systems`
-    - [ ] Download button for **games**
-    - [ ] Products in a carousel
+    - [x] Create a tab for `games` and `systems`
+    - [x] Download button for **games**
+    - [x] Products in a carousel
   - [x] Create Footer
-  - [ ] Create About container
+  - [x] Create About container
 - [ ] DevTools
   - [ ] Base64 `encoder`/`decoder`
   - [ ] Character **counter**
