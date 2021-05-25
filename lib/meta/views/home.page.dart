@@ -46,7 +46,10 @@ class _WowlsHomePageState extends State<WowlsHomePage> {
                   height: parentSize.height / 4,
                 ),
               ),
-              WowlsContact(),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 18),
+                child: WowlsContact(),
+              ),
               ConstrainedBox(
                 constraints: BoxConstraints(minHeight: 100),
                 child: WowlsFooter(),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:wrappedowls_landing_page/app/shared/theme.enum.dart';
-import 'package:wrappedowls_landing_page/app/shared/theme.wrappedowls.dart';
+
+import '../../widgets/forms/contact_us/contact_us.form.dart';
 
 class WowlsContact extends StatefulWidget {
   final double minHeight;
@@ -13,88 +12,38 @@ class WowlsContact extends StatefulWidget {
 }
 
 class _WowlsContactState extends State<WowlsContact> {
-  final GlobalKey<FormState> _formKey;
-  Widget _buttonTitle;
-
-  _WowlsContactState()
-      : _buttonTitle = Text('Submit'),
-        _formKey = GlobalKey<FormState>();
-
-  @override
-  Widget build(BuildContext context) {
-    final ctxSize = MediaQuery.of(context).size;
+  Widget _buildForm() {
     return Container(
       constraints: BoxConstraints(
         minHeight: widget.minHeight,
         maxWidth: 400,
       ),
       alignment: Alignment.center,
-      child: Form(
-        key: _formKey,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Contact Us',
-              softWrap: true,
-              style: TextStyle(
-                color: UuuUhuThemes.currentPalette(UuuUhuPalette.APPBAR_TEXT),
-                fontWeight: FontWeight.bold,
-                fontSize: 30,
-              ),
-            ),
-            TextFormField(
-              maxLength: 255,
-              keyboardType: TextInputType.name,
-              decoration: InputDecoration(
-                labelText: 'Name:',
-                hintText: 'Your name here',
-                errorMaxLines: 4,
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            TextFormField(
-              maxLength: 255,
-              keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
-                labelText: 'Email:',
-                hintText: 'some@email.com',
-                errorMaxLines: 4,
-              ),
-              inputFormatters: [
-                FilteringTextInputFormatter.singleLineFormatter,
-              ],
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            TextFormField(
-              maxLength: 600,
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(
-                labelText: 'Message:',
-                hintText: 'What you interested for',
-                errorMaxLines: 4,
-              ),
-            ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary: UuuUhuPalette.BUTTON.of(context),
-              ),
-              onPressed: () {
-                if (_formKey.currentState?.validate() ?? false) {
-                  setState(() {
-                    _buttonTitle = CircularProgressIndicator();
-                  });
-                }
-              },
-              child: _buttonTitle,
-            )
-          ],
+      child: ContactUsForm(),
+    );
+  }
+
+  Widget _buildLayout(BuildContext context, BoxConstraints constraints) {
+    if (constraints.maxWidth <= 880) {
+      return _buildForm();
+    }
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        _buildForm(),
+        Image.asset(
+          'assets/images/plane_mail_gif.gif',
+          width: constraints.maxWidth / 2,
+          fit: BoxFit.fitWidth,
         ),
-      ),
+      ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: _buildLayout,
     );
   }
 }
