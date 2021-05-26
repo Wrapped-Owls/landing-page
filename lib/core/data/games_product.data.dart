@@ -10,7 +10,7 @@ abstract class GamesProductData {
       description: 'A game made in honor of PPA, paying homage to '
           'how good it is to make fun of him. Kappa ',
       image: Image.asset(
-        'assets/images/970a5100-b170-11e9-90d8-ac88fe749996.png',
+        'assets/images/games/970a5100-b170-11e9-90d8-ac88fe749996.png',
       ),
       links: DownloadLinksValue(
         windows:
@@ -26,7 +26,7 @@ abstract class GamesProductData {
       description:
           'A Asteroids+SpaceInvaders like game that is built to give fun to players',
       image: Image.asset(
-        'assets/images/e495-2cb99-4cf7391-3c828-cfb8-cb49-a8.png',
+        'assets/images/games/e495-2cb99-4cf7391-3c828-cfb8-cb49-a8.png',
       ),
       links: DownloadLinksValue(
         windows: 'https://scratch.mit.edu/projects/163175012/',
@@ -42,7 +42,7 @@ abstract class GamesProductData {
           'and fighting for survivor running away from the toxic mist, can you '
           'find a new home?',
       image: Image.asset(
-        'assets/images/d8b58858-b83082c-1e30cdd-b8007cd899.png',
+        'assets/images/games/d8b58858-b83082c-1e30cdd-b8007cd899.png',
       ),
       links: DownloadLinksValue(
         windows:

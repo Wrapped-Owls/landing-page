@@ -50,6 +50,8 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/games/
+    - assets/images/persons/
 
   fonts:
     - family: FriggrayndIcons
