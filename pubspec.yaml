@@ -36,6 +36,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   pedantic: ^1.11.0
+  flutter_native_splash: ^1.1.8+4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -57,3 +58,24 @@ flutter:
     - family: FriggrayndIcons
       fonts:
         - asset: assets/fonts/FriggrayndIcons.ttf
+flutter_native_splash:
+
+  # This package generates native code to customize Flutter's default white native splash screen
+  # with background color and splash image.
+  # color or background_image is the only required parameter.  Use color to set the background
+  color: "#c9d6d6"
+  image: assets/splashscreen_light.png
+
+  # Dark colors
+  color_dark: "#202626"
+  image_dark: assets/splashscreen_dark.png
+
+  # The android, ios and web parameters can be used to disable generating a splash screen on a given
+  # platform.
+  android: false
+  ios: false
+  web: true
+  android_gravity: center
+
+  # web_image_mode can be one of the following modes: center, contain, stretch, and cover.
+  web_image_mode: center
