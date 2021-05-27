@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 
 class WowlsCustomGrid extends StatelessWidget {
   final List<Widget> children;
+  final int Function(double)? crossQuantity;
   final double crossAxisSpacing;
   final double mainAxisSpacing;
 
   const WowlsCustomGrid({
     Key? key,
     required this.children,
+    this.crossQuantity,
     this.crossAxisSpacing = 0.04,
     this.mainAxisSpacing = 14,
   })  : assert(crossAxisSpacing < 0.6, 'spacing should be lesser than 60%'),
@@ -26,13 +28,6 @@ class WowlsCustomGrid extends StatelessWidget {
     final totalSpacing = spacing * children.length - 1;
     for (var index = 0; index < children.length; index++) {
       final child = children[index];
-      /*if (index > 0) {
-        constrainedChildren.add(
-          SizedBox(
-            width: spacing,
-          ),
-        );
-      }*/
       constrainedChildren.add(
         _limitSize(child, (parentWidth - totalSpacing) / children.length),
       );
@@ -48,12 +43,14 @@ class WowlsCustomGrid extends StatelessWidget {
   Widget _buildElements(BuildContext context, BoxConstraints constraints) {
     final parentWidth = constraints.biggest.width;
     var crossCount = 2;
-    if (parentWidth >= 650) {
+    if (crossQuantity != null) {
+      crossCount = crossQuantity!(parentWidth);
+    } else if (parentWidth > 1200) {
+      crossCount = 4;
+    } else if (parentWidth >= 650) {
       crossCount = 3;
     }
-    if (parentWidth > 1200) {
-      crossCount = 4;
-    }
+
     if (children.length <= crossCount) {
       return _buildRowItems(children, parentWidth);
     }
@@ -62,7 +59,7 @@ class WowlsCustomGrid extends StatelessWidget {
     var count = 0;
     for (final child in children) {
       _tempChildren.add(child);
-      count+=1;
+      count += 1;
       if (count >= crossCount) {
         if (columnChildren.isNotEmpty) {
           columnChildren.add(SizedBox(height: mainAxisSpacing));
