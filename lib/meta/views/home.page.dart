@@ -1,10 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:wrappedowls_landing_page/core/util/app.info.dart';
-import 'package:wrappedowls_landing_page/meta/views/content/contact_us.dart';
 
 import 'content/about.dart';
 import 'content/banner.dart';
+import 'content/contact_us.dart';
 import 'content/people.dart';
 import 'content/products.dart';
 import 'general/footer.dart';

@@ -96,11 +96,13 @@ class ContactUsForm extends StatelessWidget {
                 primary: UuuUhuPalette.BUTTON.of(context),
               ),
               onPressed: () {
-                if (_formKey.currentState?.validate() ?? false) {}
+                if (_formKey.currentState?.validate() ?? false) {
+                  // TODO submit a form with data to server
+                }
               },
               child: Text('Submit'),
             ),
-          )
+          ),
         ],
       ),
     );

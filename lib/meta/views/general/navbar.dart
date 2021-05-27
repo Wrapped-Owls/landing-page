@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:wrappedowls_landing_page/app/shared/theme.wrappedowls.dart';
@@ -35,10 +37,15 @@ abstract class WowlsNavbar {
   }
 
   static Widget buildActions(BuildContext context) {
+    final ctxSize = MediaQuery.of(context).size;
     return ToggleButtons(
       isSelected: [false, false],
       renderBorder: false,
-      constraints: BoxConstraints.tight(Size.fromWidth(100)),
+      constraints: BoxConstraints.tight(
+        Size.fromWidth(
+          min<double>(ctxSize.width * 0.28, 100),
+        ),
+      ),
       children: [
         ElevatedButton(
           onPressed: () {},
@@ -64,7 +71,7 @@ abstract class WowlsNavbar {
       actions: [
         buildActions(context),
         SizedBox(
-          width: 10,
+          width: 6,
         ),
         buildToggleTheme(),
       ],
