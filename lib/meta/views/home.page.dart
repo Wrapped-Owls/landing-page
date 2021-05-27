@@ -41,7 +41,7 @@ class _WowlsHomePageState extends State<WowlsHomePage> {
                 height: parentSize.height / 4,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 10),
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 child: WowlsPeople(
                   height: parentSize.height / 4,
                 ),

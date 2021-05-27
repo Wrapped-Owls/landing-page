@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wrappedowls_landing_page/core/data/people.data.dart';
 import 'package:wrappedowls_landing_page/meta/widgets/cards/people.card.dart';
+import 'package:wrappedowls_landing_page/meta/widgets/layout/grid.wowls.dart';
 
 class WowlsPeople extends StatefulWidget {
   final double height;
@@ -46,14 +47,17 @@ class _WowlsPeopleState extends State<WowlsPeople> {
           SizedBox(
             height: 10,
           ),
-          Scrollbar(
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              padding: EdgeInsets.only(left: 8, right: 8),
-              child: Row(
-                children: _buildPeopleList(context),
-              ),
-            ),
+          WowlsCustomGrid(
+            crossQuantity: (width) {
+              if (width >= 1200) {
+                return 3;
+              }
+              if (width >= 650) {
+                return 2;
+              }
+              return 1;
+            },
+            children: _buildPeopleList(context),
           ),
         ],
       ),
